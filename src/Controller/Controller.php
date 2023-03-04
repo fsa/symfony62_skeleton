@@ -11,6 +11,7 @@ use Twig\Environment;
 class Controller extends AbstractController
 {
     #[Route('/', name: 'homepage')]
+    #[IsGranted('ROLE_USER')]
     public function index(Environment $twig): Response
     {
         return new Response($twig->render('index.html.twig', ['message'=> 'Welcome to your new controller!
